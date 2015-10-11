@@ -11,10 +11,15 @@ public class Obstacles {
 	private int PositionY;
 
 	public Obstacles(){
-
+		
+		Obstacles chair[] = new Obstacles[2];
+		Obstacles table[] = new Obstacles[4];
+		Obstacles door = new Obstacles();
+	
+		
 	}
 
 	public void finalize() throws Throwable {
-
+		
 	}
 }//end Obstacles
