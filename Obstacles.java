@@ -11,7 +11,16 @@ public class Obstacles {
 	private int Position Y;
 
 	public Obstacles(){
+		
+		door[][] = new Obstacles[1][2];
+		chair[][] = new Obstacles[2][2];
+		table[][] = new Obstacles[3][2];
+		
+		
 
+	}
+	public int position (int x = Position X, int y = Position Y){
+		
 	}
 
 	public void finalize() throws Throwable {
