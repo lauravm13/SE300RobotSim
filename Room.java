@@ -10,7 +10,11 @@ public class Room {
 	public Obstacles m_Obstacles;
 
 	public Room(){
-
+		
+		//Add borders/dimensions to each room
+		public COB125;
+		public Atrium;
+		public Hallway;
 	}
 
 	public void finalize() throws Throwable {
