@@ -80,14 +80,26 @@ public class SE300RobotProject extends Application {
 	Text homemenu_title = new Text("ECSSE Robot Simulation") ;
 	//this is the  subtitle for the home menu
 	Text homemenu_subtitle = new Text("SE300 Fall 2015 Project") ; 
-	//text for the lehman atrium
+
 	//this text is the title for the lehman atrium simulation 
 	Text lehmanAtriumSim_title = new Text("Lehman Atrium Simulation") ; 
+	//text title  for the lehman atrium simulation 
+	Text lehmanAtriumSim_simTitle = new Text("Simulation") ; 
+	//text title for the lehman atrium user input 
+	Text lehmanAtriumSim_uiTitle = new Text("This is where the user input will be") ;
+	
 	//text for ecsse hallways 
 	Text ecsseHallwaySim_title = new Text("ECSSE Hallway Simulation") ; 
+	
 	//this is the text that is for the cob simulation 
-	Text cob125Sim_title = new Text("COB Room 125 Simulation") ; 
+	Text cob125Sim_title = new Text("COB Room 125 Simulation") ;
+	
+	
 	//create all the buttons for the gui
+	
+	//buttons for the home menu 
+	Button homemenu_infobutton = new Button("info") ; 
+
 	//buttons for the lehman atrium
 	//this button will take you to the screen for the lehman atrium simulation from the home menu 
 	Button lehmanAtriumSim_button = new Button("Lehman Atrium Simulation") ; 
@@ -120,8 +132,25 @@ public class SE300RobotProject extends Application {
 	//pulling together our home menu 
 		homemenu.getChildren().addAll(homemenu_titles, homemenu_simButtons, homemenu_information) ; 
 		
+		//information box for lehman atrium sim  
+		lehmanAtriumSim_information.getChildren().addAll(homemenu_infobutton) ; 
+		//content for the simulation 
+		//pulling content into the simulation 
+		lehmanAtriumSim_simulation.getChildren().addAll(lehmanAtriumSim_simTitle) ;
+		//put actual sim context here 
+		//pulling in content for user input 
+		lehmanAtriumSim_userInput.getChildren().addAll(lehmanAtriumSim_uiTitle) ; 
+		//put in user input here for sprint 2 
+		//pull sim and ui into content pane 
+		lehmanAtriumSim_content.getChildren().addAll(lehmanAtriumSim_simulation, lehmanAtriumSim_userInput) ; 
+		//sim title 
+		lehmanAtriumSim_titles.getChildren().addAll(lehmanAtriumSim_title) ; 
+		//pull everything into the container gui!! 
+		lehmanAtriumSim.getChildren().addAll(lehmanAtriumSim_titles, lehmanAtriumSim_content, lehmanAtriumSim_information) ; 
+		
+		
 		//make the gui work	
-		Scene scene = new Scene(homemenu,500,350) ;
+		Scene scene = new Scene(homemenu,800,400) ;
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("SE300 Project") ;
 		primaryStage.show();
