@@ -14,7 +14,7 @@ public class Obstacles {
 		
 		Obstacles chair[] = new Obstacles[2];
 		Obstacles table[] = new Obstacles[4];
-		Obstacles door = new Obstacles();
+		Obstacles door[][] = new Obstacles[1][1];
 	
 		
 	}
