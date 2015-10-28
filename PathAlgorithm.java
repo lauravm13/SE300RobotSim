@@ -1,5 +1,7 @@
 import java.util.Random;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -8,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * @author mayorl
@@ -76,7 +79,74 @@ public class PathAlgorithm extends GridPane{
 
 		//if number is 1 move up, if 2 move down, if 3 move left, and if 4 move right
 
-	/*	//generate a random number to choose where the robot will be moving
+
+		//algorithm for path finding
+		Timeline animation = new Timeline(
+				new KeyFrame(Duration.millis(200),
+						e -> moveRobot()));
+		animation.setCycleCount(Timeline.INDEFINITE);
+		animation.play();
+
+	}
+	//if there is obstacle
+	//determine if person or chair/table
+	//if person, give flyer
+	//choice direction randomly (up, down, left, right) and move
+
+	//move the player when down arrow is pressed
+	public void movePlayerDown() {
+		// Check to see if it's on the edge
+		if (locRow < array.length - 1){
+			// Check to see if the next position is blocked
+			if (array[locRow+1][locCol]==0){
+				locRow++;
+				PathAlgorithm.setRowIndex(robot, locRow);
+			}
+		}
+	}
+	//move the player up arrow is pressed
+	public void movePlayerUp() {
+		// Check to see if it's on the edge
+		if (locRow > 1){
+			// Check to see if the next position is blocked
+			if (array[locRow-1][locCol]==0){
+				locRow--;
+				PathAlgorithm.setRowIndex(robot, locRow);
+			}
+		}
+	}
+	//move the player when left arrow is pressed
+	public void movePlayerLeft() {
+		// Check to see if it's on the edge
+		if (locCol > 0){
+			// Check to see if the next position is blocked
+			if (array[locRow][locCol-1]==0){
+				locCol--;
+				PathAlgorithm.setColumnIndex(robot, locCol);
+			}
+		}
+	}
+
+	//more the player when right array is pressed
+	public void movePlayerRight() {
+		// Check to see if it's on the edge
+		if (locCol < array[1].length -1){
+			// Check to see if the next position is blocked
+			if (array[locRow][locCol+1]==0){
+				locCol++;
+				PathAlgorithm.setColumnIndex(robot, locCol);
+			}
+		}
+	}
+
+
+
+	public void finalize() throws Throwable {
+
+	}
+	
+	public void moveRobot(){
+		//generate a random number to choose where the robot will be moving
 		Random movenum = new Random();
 		int actmove = movenum.nextInt(4) + 1;
 		System.out.println(actmove);
@@ -100,65 +170,6 @@ public class PathAlgorithm extends GridPane{
 		default:
 			break;
 		}
-
-		//algorithm for path finding
-
-
-	}
-	//if there is obstacle
-	//determine if person or chair/table
-	//if person, give flyer
-	//choice direction randomly (up, down, left, right) and move
-
-	//move the player when down arrow is pressed
-	public void movePlayerDown() {
-		// Check to see if it's on the edge
-		if (locRow < array.length - 1){
-			// Check to see if the next position is blocked
-			if (array[locRow+1][locCol]!=0){
-				locRow++;
-				PathAlgorithm.setRowIndex(robot, locRow);
-			}
-		}
-	}
-	//move the player up arrow is pressed
-	public void movePlayerUp() {
-		// Check to see if it's on the edge
-		if (locRow > 0){
-			// Check to see if the next position is blocked
-			if (array[locRow-1][locCol]!=0){
-				locRow--;
-				PathAlgorithm.setRowIndex(robot, locRow);
-			}
-		}
-	}
-	//move the player when left arrow is pressed
-	public void movePlayerLeft() {
-		// Check to see if it's on the edge
-		if (locCol > 0){
-			// Check to see if the next position is blocked
-			if (array[locRow][locCol-1]!=0){
-				locCol--;
-				PathAlgorithm.setColumnIndex(robot, locCol);
-			}
-		}
-	}
-
-	//more the player when right array is pressed
-	public void movePlayerRight() {
-		// Check to see if it's on the edge
-		if (locCol < array[1].length -1){
-			// Check to see if the next position is blocked
-			if (array[locRow][locCol+1]!=0){
-				locCol++;
-				PathAlgorithm.setColumnIndex(robot, locCol);
-			}
-		}
-	}*/
-
-
-
-	public void finalize() throws Throwable {
 
 	}
 
