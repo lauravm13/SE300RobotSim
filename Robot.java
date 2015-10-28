@@ -4,6 +4,8 @@
  * @author mayorl, strelowa
  * @version 1.0
  * @created 07-Oct-2015 5:06:34 PM
+ * Description: The main focus of the project, this class creates the robot which uses the other classes
+ * to define how it moves and interacts with its' surroundings.
  */
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -17,7 +19,9 @@ public class Robot extends StackPane {
 		Circle robot;
 
 
-		//create the object robot
+		/**
+		 * create the object robot
+		 */
 		robot = new Circle(12.5);
 		robot.setFill(Color.BLACK);
 		getChildren().add(robot);
@@ -28,7 +32,9 @@ public class Robot extends StackPane {
 
 
 
-
+/**
+ * Define rules for how the robot will move and interact with people/obstacles
+ */
 
 
 /*public class Robot {
@@ -47,12 +53,12 @@ public class Robot extends StackPane {
         radius = 0.025 + Math.random() * 0.05;
 
 	}
-	 // bounce of vertical wall by reflecting x-velocity
+	 // bounce off vertical wall by reflecting x-velocity
     private void bounceOffVerticalWall() {
         vx = -vx;
     }
 
-    // bounce of horizontal wall by reflecting y-velocity
+    // bounce off horizontal wall by reflecting y-velocity
     private void bounceOffHorizontalWall() {
         vy = -vy;
     }
@@ -71,4 +77,4 @@ public class Robot extends StackPane {
 		return 0;
 	}
 }//end Robot
-*/
+ 

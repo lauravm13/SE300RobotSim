@@ -16,15 +16,17 @@ import javafx.util.Duration;
  * @author mayorl
  * @version 1.0
  * @created 07-Oct-2015 5:06:31 PM
+ * Description: Algorithm the robot will utilize to determine its' path around each room
  */
 public class PathAlgorithm extends GridPane{
 
 	private BorderPane g;
 	public Robot robot;
 
-
-	//create a mock up of the room by creating an array 
-	//the 1 in the array represent sample obstacles
+	/**
+	 *	Create a mock up of the room by creating an array, 
+	 *	the 1's in the array represent sample obstacles
+	 */	
 	int[][] array = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -47,21 +49,29 @@ public class PathAlgorithm extends GridPane{
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 	};
 
-	// robot location
+	/**
+	 * Initial location of the robot
+	 * @param locCol Defines robot's horizontal postion
+	 * @param locRow Defines robot's vertical position
+	 */
 	int locCol = 9;
 	int locRow = 1;
 
 	public static final int SQUARESIZE = 25;
 
 
-	//create the obstacles 
-
+	/** 
+	 *Create the obstacles
+	 */
 	Rectangle rectangle;
 
 	public PathAlgorithm() {		
 
 
-		//place a square where there is a 1 on the array
+		/**
+		 * Place a square where there is a 1 on the array
+		 */
+
 		for (int i = 1; i < array.length; i++) {
 			for (int j = 0; j < array[i].length; j++) {
 				if (array[i][j]==0){
@@ -77,10 +87,11 @@ public class PathAlgorithm extends GridPane{
 
 		add(robot, locCol, locRow);
 
-		//if number is 1 move up, if 2 move down, if 3 move left, and if 4 move right
+		/**
+		 * algorithm for path finding:
+		 *if number is 1 move up, if 2 move down, if 3 move left, and if 4 move right
+		 */
 
-
-		//algorithm for path finding
 		Timeline animation = new Timeline(
 				new KeyFrame(Duration.millis(200),
 						e -> moveRobot()));
@@ -88,38 +99,58 @@ public class PathAlgorithm extends GridPane{
 		animation.play();
 
 	}
-	//if there is obstacle
-	//determine if person or chair/table
-	//if person, give flyer
-	//choice direction randomly (up, down, left, right) and move
+	/** 
+	 *determine if person or obstacle
+	 *if person, give flyer
+	 *choose direction randomly (up, down, left, right) and move
+	 */
 
-	//move the player when down arrow is pressed
+	/**
+	 * Move the player when down arrow is pressed
+	 */
 	public void movePlayerDown() {
-		// Check to see if it's on the edge
+		/**
+		 * Check to see if the robot is on the edge
+		 */
+
 		if (locRow < array.length - 1){
-			// Check to see if the next position is blocked
+			/**
+			 * Check to see if the next position is blocked
+			 */
 			if (array[locRow+1][locCol]==0){
 				locRow++;
 				PathAlgorithm.setRowIndex(robot, locRow);
 			}
 		}
 	}
-	//move the player up arrow is pressed
+	/**
+	 * Move the player up arrow is pressed
+	 */
 	public void movePlayerUp() {
-		// Check to see if it's on the edge
+		/**
+		 * Check to see if the robot is on the edge
+		 */
 		if (locRow > 1){
-			// Check to see if the next position is blocked
+			/**
+			 * Check to see if the next position is blocked
+			 */
 			if (array[locRow-1][locCol]==0){
 				locRow--;
 				PathAlgorithm.setRowIndex(robot, locRow);
 			}
 		}
 	}
-	//move the player when left arrow is pressed
+	/**
+	 * Move the player when left arrow is pressed
+	 */
 	public void movePlayerLeft() {
-		// Check to see if it's on the edge
+		/**
+		 * Check to see if the robot is on the edge
+		 */
 		if (locCol > 0){
-			// Check to see if the next position is blocked
+			/**
+			 * Check to see if the next position is blocked
+			 */
 			if (array[locRow][locCol-1]==0){
 				locCol--;
 				PathAlgorithm.setColumnIndex(robot, locCol);
@@ -127,11 +158,17 @@ public class PathAlgorithm extends GridPane{
 		}
 	}
 
-	//more the player when right array is pressed
+	/**
+	 * More the player when right array is pressed
+	 */
 	public void movePlayerRight() {
-		// Check to see if it's on the edge
+		/**
+		 * Check to see if the robot is on the edge
+		 */
 		if (locCol < array[1].length -1){
-			// Check to see if the next position is blocked
+			/**
+			 * Check to see if the next position is blocked
+			 */
 			if (array[locRow][locCol+1]==0){
 				locCol++;
 				PathAlgorithm.setColumnIndex(robot, locCol);
@@ -144,15 +181,20 @@ public class PathAlgorithm extends GridPane{
 	public void finalize() throws Throwable {
 
 	}
-	
+
 	public void moveRobot(){
-		//generate a random number to choose where the robot will be moving
+		/**
+		 * Generate a random number to choose where the robot will be moving
+		 * @param actmove
+		 */
 		Random movenum = new Random();
 		int actmove = movenum.nextInt(4) + 1;
 		System.out.println(actmove);
 
 
-		//make the robot move automatically
+		/**
+		 * Switch to make the robot move automatically
+		 */
 
 		switch(actmove){
 		case 1:
@@ -174,3 +216,4 @@ public class PathAlgorithm extends GridPane{
 	}
 
 }//end PathAlgorithm
+ 
