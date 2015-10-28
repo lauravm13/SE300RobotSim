@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class runpath extends Application{
+public class Runpath extends Application{
 
 	public PathAlgorithm robotmove;
 	private BorderPane g;
