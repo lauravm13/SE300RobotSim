@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
- * @author mayorl
+ * @authors Laura Mayor & Adriana Strelow
  * @version 1.0
  * @created 07-Oct-2015 5:06:31 PM
  * Description: Algorithm the robot will utilize to determine its' path around each room

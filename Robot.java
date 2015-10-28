@@ -76,5 +76,4 @@ public class Robot extends StackPane {
 	public int Move(){
 		return 0;
 	}
-}//end Robot
- 
+}//end Robot*/
