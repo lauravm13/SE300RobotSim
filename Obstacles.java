@@ -1,7 +1,7 @@
 
 
 /**
- * @author mayorl
+ * @author Dan
  * @version 1.0
  * @created 07-Oct-2015 5:06:30 PM
  * Description: Obstacles class containing the three obstacles.
@@ -13,25 +13,25 @@ public class Obstacles {
 	 * @param Y Creates the y coordinate
 	 */
 
-	private int Position X;
-	private int Position Y;
+	//private int Position X;
+	//private int Position Y;
 
 	public Obstacles(){
 
 		/**
 		 *	First obstacle  
 		 */
-		door[][] = new Obstacles[1][2];
+		//door[][] = new Obstacles[1][2];
 
 		/**
 		 *	Second obstacle  
 		 */		
-		chair[][] = new Obstacles[2][2];
+		//chair[][] = new Obstacles[2][2];
 
 		/**
 		 *	Third obstacle  
 		 */
-		table[][] = new Obstacles[3][2];
+		//table[][] = new Obstacles[3][2];
 
 
 
@@ -41,9 +41,9 @@ public class Obstacles {
 	 *@param x First int value
 	 *@param y Second int value
 	 */
-	public int position (int x = Position X, int y = Position Y){
+	//public int position (int x = Position X, int y = Position Y){
 
-	}
+	//}
 
 	public void finalize() throws Throwable {
 

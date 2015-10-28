@@ -7,7 +7,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * @author mayorl
+ * @author Rebecca
  * @version 1.0
  * @created 07-Oct-2015 5:06:37 PM
  * Description: The central class within the project, this class brings together everything else and
