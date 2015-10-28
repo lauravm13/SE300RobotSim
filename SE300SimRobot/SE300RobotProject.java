@@ -90,9 +90,17 @@ public class SE300RobotProject extends Application {
 	
 	//text for ecsse hallways 
 	Text ecsseHallwaySim_title = new Text("ECSSE Hallway Simulation") ; 
+	//text title for the ex hallway sim 
+	Text ecsseHallwaySim_simTitle = new Text("Simulation") ;
+	//text title for the ex hallway simulation input 
+	Text ecsseHallwaySim_uiTitle = new Text("This is where user input will be") ; 
 	
 	//this is the text that is for the cob simulation 
 	Text cob125Sim_title = new Text("COB Room 125 Simulation") ;
+	//text title for the cob sim 
+	Text cob125Sim_simTitle = new Text("Simulation") ; 
+	//text title for the cob ui 
+	Text cob125Sim_uiTitle = new Text("This is where user input will be") ; 
 	
 	
 	//create all the buttons for the gui
@@ -123,14 +131,16 @@ public class SE300RobotProject extends Application {
 	public void start(Stage primaryStage) throws Exception {
 	//this is the exciting part where we put panes where they should go :) 
 		
-	//information box for the home menu 
+		//information box for the home menu 
 		homemenu_information.getChildren().addAll(lehmanAtriumSim_infobutton) ; 
-	//button box for the home menu
+		//button box for the home menu
 		homemenu_simButtons.getChildren().addAll(lehmanAtriumSim_button, ecsseHallwaySim_button, cob125Sim_button) ;
-	//title box
+		//title box
 		homemenu_titles.getChildren().addAll(homemenu_title, homemenu_subtitle) ;
-	//pulling together our home menu 
+		//pulling together our home menu 
 		homemenu.getChildren().addAll(homemenu_titles, homemenu_simButtons, homemenu_information) ; 
+		
+		
 		
 		//information box for lehman atrium sim  
 		lehmanAtriumSim_information.getChildren().addAll(homemenu_infobutton) ; 
@@ -149,8 +159,50 @@ public class SE300RobotProject extends Application {
 		lehmanAtriumSim.getChildren().addAll(lehmanAtriumSim_titles, lehmanAtriumSim_content, lehmanAtriumSim_information) ; 
 		
 		
-		//make the gui work	
+		
+		//pulling together ecsse hallway 
+		ecsseHallwaySim_information.getChildren().addAll(ecsseHallwaySim_infobutton) ; 
+		//content for the simulation 
+		//pulling content into the simulation 
+		ecsseHallwaySim_simulation.getChildren().addAll(ecsseHallwaySim_simTitle) ;
+		//put actual sim context here 
+		//pulling in content for user input 
+		ecsseHallwaySim_userInput.getChildren().addAll(ecsseHallwaySim_uiTitle) ; 
+		//put in user input here for sprint 2 
+		//pull sim and ui into content pane 
+		ecsseHallwaySim_content.getChildren().addAll(ecsseHallwaySim_simulation, ecsseHallwaySim_userInput) ; 
+		//sim title 
+		ecsseHallwaySim_titles.getChildren().addAll(ecsseHallwaySim_title) ; 
+		//pull everything into the container gui!! 
+		ecsseHallwaySim.getChildren().addAll(ecsseHallwaySim_titles, ecsseHallwaySim_content, ecsseHallwaySim_information) ; 
+		
+		
+		
+		//pulling together ecsse hallway 
+		cob125Sim_information.getChildren().addAll(cob125Sim_infobutton) ; 
+		//content for the simulation 
+		//pulling content into the simulation 
+		cob125Sim_simulation.getChildren().addAll(cob125Sim_simTitle) ;
+		//put actual sim context here 
+		//pulling in content for user input 
+		cob125Sim_userInput.getChildren().addAll(cob125Sim_uiTitle) ; 
+		//put in user input here for sprint 2 
+		//pull sim and ui into content pane 
+		cob125Sim_content.getChildren().addAll(cob125Sim_simulation, cob125Sim_userInput) ; 
+		//sim title 
+		cob125Sim_titles.getChildren().addAll(cob125Sim_title) ; 
+		//pull everything into the container gui!! 
+		cob125Sim.getChildren().addAll(ecsseHallwaySim_titles, ecsseHallwaySim_content, ecsseHallwaySim_information) ; 
+			
+		
 		Scene scene = new Scene(homemenu,800,400) ;
+			
+		
+		cob125Sim_button.setOnAction(e -> {
+			scene.setRoot(cob125Sim);
+		});
+		
+		//make the gui work	
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("SE300 Project") ;
 		primaryStage.show();
