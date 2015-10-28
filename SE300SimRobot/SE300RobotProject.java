@@ -192,12 +192,22 @@ public class SE300RobotProject extends Application {
 		//sim title 
 		cob125Sim_titles.getChildren().addAll(cob125Sim_title) ; 
 		//pull everything into the container gui!! 
-		cob125Sim.getChildren().addAll(ecsseHallwaySim_titles, ecsseHallwaySim_content, ecsseHallwaySim_information) ; 
+		cob125Sim.getChildren().addAll(cob125Sim_titles, cob125Sim_content, cob125Sim_information) ; 
 			
 		
 		Scene scene = new Scene(homemenu,800,400) ;
-			
 		
+		//taking user to the lehman atrium sim when button is clicked 
+		lehmanAtriumSim_button.setOnAction(e -> {
+			scene.setRoot(lehmanAtriumSim);
+		});
+		
+		//taking user to the ecsse hallway sim when button is clicked 
+		ecsseHallwaySim_button.setOnAction(e -> {
+			scene.setRoot(ecsseHallwaySim);
+		});
+		
+		//taking the user to the cob125 sim when button is clicked 
 		cob125Sim_button.setOnAction(e -> {
 			scene.setRoot(cob125Sim);
 		});
