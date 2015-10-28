@@ -5,7 +5,33 @@
  * @version 1.0
  * @created 07-Oct-2015 5:06:34 PM
  */
-public class Robot {
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+
+public class Robot extends StackPane {
+
+	public Robot(){
+
+
+		Circle robot;
+
+
+		//create the object robot
+		robot = new Circle(12.5);
+		robot.setFill(Color.BLACK);
+		getChildren().add(robot);
+	}
+
+
+}
+
+
+
+
+
+
+/*public class Robot {
 
 	public int Move;
 	private double rx, ry;        // position
@@ -45,3 +71,4 @@ public class Robot {
 		return 0;
 	}
 }//end Robot
+*/

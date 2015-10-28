@@ -1,17 +1,34 @@
+import java.util.Random;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class runpath extends Application{
+
+	public PathAlgorithm robotmove;
+	private BorderPane g;
+	
+
+	public void start(Stage stage) throws Exception {
 
 
-/**
- * @author mayorl
- * @version 1.0
- * @created 07-Oct-2015 5:06:25 PM
- */
-public class Class1 {
+		//create a border pane that will include all the nodes and the maze
+		g = new BorderPane();
+		//create a game scene where the game will be displayed
+		Scene game = new Scene(new PathAlgorithm());
 
-	public Class1(){
-
+		
+		stage.setScene(game);
+		stage.setResizable(false);
+		stage.setTitle("Robot Simulation");
+		stage.show();
+		
 	}
 
-	public void finalize() throws Throwable {
-
+	public static void main(String[] args) {
+		launch(args);
 	}
-}//end Class1
+
+}
