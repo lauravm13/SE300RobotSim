@@ -11,6 +11,20 @@ public class Flyers {
 
 	public Flyers(){
 
+		//not what I initially had but tinkering around and testing the commit.
+int numFlyers = 0;
+		new Flyer a = a.flyer();
+
+		//must hold 16 flyers
+		for (Flyer< 17, >-1){
+			do Flyer = Flyer-1;
+
+			//display number of flyers left
+			System.println("The number of flyers left is: " + Flyer);
+
+			// each flyer must be 8 1/2 x 11 inches
+
+		}
 	}
 
 	public void finalize() throws Throwable {
