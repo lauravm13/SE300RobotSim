@@ -22,6 +22,8 @@ public class PathAlgorithm extends GridPane{
 
 	private BorderPane g;
 	public Robot robot;
+	public Circle obs;
+
 
 	/**
 	 *	Create a mock up of the room by creating an array, 
@@ -81,6 +83,27 @@ public class PathAlgorithm extends GridPane{
 				}
 			}
 		}
+		
+		//hardcode a number of obstacles (it will be provided by the user)
+		int NumObstacles = 10; 
+		
+		int nObs = 0;
+		while(nObs < NumObstacles){
+		// get random location
+			Random random = new Random();
+			int RanRow = random.nextInt(20);
+			int RanCol = random.nextInt(20);
+			// if loc = 0, put a fruit there and increment nFruit
+			if (array[RanRow][RanCol]==0){
+				obs = new Obstacles(RanRow, RanCol);
+				add(obs,RanCol,RanRow);
+				obs.centerXProperty();
+				obs.centerYProperty();
+				//.add(Fruit);
+				nObs++;
+				
+			}
+		}
 
 
 		robot = new Robot();
@@ -97,6 +120,7 @@ public class PathAlgorithm extends GridPane{
 						e -> moveRobot()));
 		animation.setCycleCount(Timeline.INDEFINITE);
 		animation.play();
+		
 
 	}
 	/** 
