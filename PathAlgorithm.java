@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 import javafx.animation.KeyFrame;
@@ -23,6 +24,7 @@ public class PathAlgorithm extends GridPane{
 	private BorderPane g;
 	public Robot robot;
 	public Circle obs;
+	public Rectangle obsT;
 
 
 	/**
@@ -30,24 +32,24 @@ public class PathAlgorithm extends GridPane{
 	 *	the 1's in the array represent sample obstacles
 	 */	
 	int[][] array = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
-			{0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
-			{0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
-			{0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0},
-			{0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 	};
 
@@ -78,34 +80,81 @@ public class PathAlgorithm extends GridPane{
 			for (int j = 0; j < array[i].length; j++) {
 				if (array[i][j]==0){
 					rectangle = new Rectangle(SQUARESIZE, SQUARESIZE);
-					rectangle.setFill(Color.BLUE);
+					//rectangle.setFill(Color.BLUE);
 					add(rectangle,j,i);
 				}
 			}
 		}
 		
 		//hardcode a number of obstacles (it will be provided by the user)
-		int NumObstacles = 10; 
+		//Number of people
+		int NumPeople = 15; 
+		//number of chairs
+		//int NumChairs=10;
+		//number of tables
+		//int NumTables=10;
 		
 		int nObs = 0;
-		while(nObs < NumObstacles){
+		//add the people to the room
+		while(nObs < NumPeople){
 		// get random location
 			Random random = new Random();
 			int RanRow = random.nextInt(20);
 			int RanCol = random.nextInt(20);
-			// if loc = 0, put a fruit there and increment nFruit
+			// if loc = 0 or empty, put a person there 
 			if (array[RanRow][RanCol]==0){
-				obs = new Obstacles(RanRow, RanCol);
+				obs = new People(RanRow, RanCol);
 				add(obs,RanCol,RanRow);
+				//put a 2 in the array where the obstacle is 
+				array[RanRow][RanCol]=2;
 				obs.centerXProperty();
 				obs.centerYProperty();
 				//.add(Fruit);
-				nObs++;
-				
+				//nObs++;
 			}
 		}
-
-
+		
+	/*	//add the chair
+		while(nObs < NumChairs){
+			// get random location
+				Random random = new Random();
+				int RanRow = random.nextInt(20);
+				int RanCol = random.nextInt(20);
+				// if loc = 0 or empty, put a person there 
+				if (array[RanRow][RanCol]==0){
+					obs = new Chair(RanRow, RanCol);
+					add(obs,RanCol,RanRow);
+					//put a 1 in the array where the obstacle is 
+					array[RanRow][RanCol]=1;
+					obs.centerXProperty();
+					obs.centerYProperty();
+					//.add(Fruit);
+					//nObs++;
+				}
+			}*/
+			
+		
+	/*	while(0 < NumTables){
+			// get random location
+				Random random = new Random();
+				int RanRow = random.nextInt(20);
+				int RanCol = random.nextInt(20);
+				// if loc = 0 or empty, put a person there 
+				if (array[RanRow][RanCol]==0){
+					obsT = new Table(RanRow, RanCol);
+					add(obsT,RanCol,RanRow);
+					//put a 2 in the array where the obstacle is 
+					array[RanRow][RanCol]=2;
+					//obsT.centerXProperty();
+					//obsT.centerYProperty();
+					//.add(Fruit);
+					//nObs++;
+				}
+			}*/
+			
+		//print out array to check
+		System.out.print(Arrays.deepToString(array));
+		
 		robot = new Robot();
 
 		add(robot, locCol, locRow);
@@ -213,7 +262,7 @@ public class PathAlgorithm extends GridPane{
 		 */
 		Random movenum = new Random();
 		int actmove = movenum.nextInt(4) + 1;
-		System.out.println(actmove);
+		//System.out.println(actmove);
 
 
 		/**
