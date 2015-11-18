@@ -1,19 +1,19 @@
-package App;
+/*package App;
 import App.PathAlgorithim;
 import java.util.Random;
 
-/**
+*//**
  * @author Daniel D. & Nick H.
  * @version 1.0
  * @created 07-Oct-2015 5:06:35 PM
  * Description: Creates the various rooms the actual robot would be used in for demonstation
- */
+ *//*
 public class Room {
 	int userinputX = 20; // change to 0 when implemantation is done
 	int userinputY = 20; 
-	/**
+	*//**
 	 * Creates the room objects
-	 */
+	 *//*
 	public static void main(String[] args) { //Temporary main method for running
 		COB125();
 		//Atrium;
@@ -21,11 +21,11 @@ public class Room {
 	}
 
 
-	/**
+	*//**
 	 * Add borders/dimensions to each room
 	 * @param COB125
 	 * @return Displays the array using COB125's dimensions/obstacles
-	 */
+	 *//*
 	public static void COB125(){ //  addd inputs here when ready
 
 		int userinputX = 20; // get rid of when implemantation is done
@@ -83,11 +83,11 @@ public class Room {
 	}
 	// random number between 1 & userinputx and vice versa. place a person there, make a person varaible that is inputed from user, subtract 1 everytime a value is changed. when value is equal to 1. stop for loop. place a person there.
 
-	/**
+	*//**
 	 * Add borders/dimensions to each room
 	 * @param Atrium
 	 * @return Displays the array using the Atrium's dimensions/obstacles
-	 */
+	 *//*
 	public static void Atrium(){ //  Method that mods array to fit dimensions of the Lehman Building Atrium.
 		PathAlgorithim Path2 = new PathAlgorithim();
 		int[][] Atrium = Path2.returnArray();
@@ -100,11 +100,11 @@ public class Room {
 		// THERE ARE NO TABLES IN THE ATRIUM or doors , just walls
 	}
 
-	/**
+	*//**
 	 * Add borders/dimensions to each room
 	 * @param Hallway
 	 * @return Displays the array using the Hallway's dimensions/obstacles
-	 */
+	 *//*
 	public static void Hallway(){ //  Method that mods array to fit dimensions of a Hallway.
 		PathAlgorithim Path3 = new PathAlgorithim();
 		int[][] Hallway = Path3.returnArray();
@@ -127,4 +127,4 @@ public class Room {
 	public void finalize() throws Throwable {
 	}
 
-}//end Room
+}//end Room*/

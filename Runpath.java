@@ -15,11 +15,12 @@ public class Runpath extends Application{
 
 	public void start(Stage stage) throws Exception {
 
+		System.out.println("Starting!");
 
 		/**
 		 * Create a border pane that will include all the nodes and the maze
 		 */
-		g = new BorderPane();
+		//g = new BorderPane();
 		/**
 		 * Create a game scene where the game will be displayed
 		 */
@@ -29,6 +30,7 @@ public class Runpath extends Application{
 		stage.setScene(game);
 		stage.setResizable(false);
 		stage.setTitle("Robot Simulation");
+		System.out.printf("Fun shiz: %.1f %.1f", game.getWidth(), game.getHeight());
 		stage.show();
 
 	}

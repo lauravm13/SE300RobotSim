@@ -7,6 +7,8 @@
  * Description: The main focus of the project, this class creates the robot which uses the other classes
  * to define how it moves and interacts with its' surroundings.
  */
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -16,26 +18,21 @@ public class Robot extends StackPane {
 	public Robot(){
 
 
-		Circle robot;
-
-
 		/**
 		 * create the object robot
 		 */
-		robot = new Circle(12.5);
-		robot.setFill(Color.BLACK);
+		ImageView robot = new ImageView(new Image("robotpic.jpg", 25,25 , false, true));
+		
+//		Circle robot;
+//		robot = new Circle(12.5);
+//		robot.setFill(Color.BLACK);
 		getChildren().add(robot);
 	}
 
-
 }
-
-
-
 /**
  * Define rules for how the robot will move and interact with people/obstacles
  */
-
 
 /*public class Robot {
 

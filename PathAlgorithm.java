@@ -96,7 +96,7 @@ public class PathAlgorithm extends GridPane{
 		
 		int nObs = 0;
 		//add the people to the room
-		while(nObs < NumPeople){
+		/*while(nObs < NumPeople){
 		// get random location
 			Random random = new Random();
 			int RanRow = random.nextInt(20);
@@ -112,7 +112,7 @@ public class PathAlgorithm extends GridPane{
 				//.add(Fruit);
 				//nObs++;
 			}
-		}
+		}*/
 		
 	/*	//add the chair
 		while(nObs < NumChairs){

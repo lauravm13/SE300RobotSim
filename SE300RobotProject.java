@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,11 +19,11 @@ import javafx.stage.Stage;
  */
 public class SE300RobotProject extends Application {
 
-public Flyers m_Flyers;
+/*public Flyers m_Flyers;
 public Audio m_Audio;
 public PathAlgorithm m_PathAlgorithm;
 public Room m_Room;
-public Robot m_Robot;
+public Robot m_Robot;*/
 
 
 /**
@@ -47,22 +49,34 @@ HBox homemenu_simButtons = new HBox() ;
 * This pane holds the about and questions/how to buttons
 */
 HBox homemenu_information = new HBox() ; 
+ 
+ 
+ 
 // Room menu to input dimensions
 VBox roommenu = new VBox();
+ 
 //getting the dimensions of the room
 Label dimensionX = new Label("X Dimension: ");
 Label dimensionY = new Label("Y Dimension: ");
 TextField xText = new TextField();
-TextField yText = new TextField(); 
+TextField yText = new TextField();
 HBox roommenu_dimension = new HBox();
+ 
+ 
 //getting the number of obstacles
 Label obstacles = new Label("Number of obstacles: ");
 TextField numObstacles = new TextField();
+ 
 //getting the number of people
 Label people = new Label("Number of people: ");
 TextField numPeople = new TextField();
+ 
+ 
 //Submit button
 Button submit = new Button("submit");
+ 
+ 
+ 
 
 /**
 * panes for the Lehman atrium sim 
@@ -201,6 +215,8 @@ Text cob125Sim_uiTitle = new Text("This is where user input will be") ;
 * Buttons for the home menu
 */
 Button homemenu_infobutton = new Button("info") ; 
+ 
+//Create dialog box containing parameters for dimensions and the max amount of people/ obstacles that can be entered
 
 /**
 * Buttons for the Lehman atrium
@@ -239,6 +255,7 @@ public SE300RobotProject(){
 */
 @Override
 public void start(Stage primaryStage) throws Exception {
+ 
 /**
 * This is the exciting part where we put panes where they should go :)
 */
@@ -264,6 +281,9 @@ homemenu.getChildren().addAll(homemenu_titles, homemenu_simButtons, homemenu_inf
 //add all items to room menu
 roommenu.getChildren().addAll(dimensionX, xText, dimensionY, yText, obstacles,numObstacles, people, numPeople, submit);
 
+ 
+ 
+ 
 /**
 * Information box for Lehman atrium sim
 */
@@ -363,6 +383,10 @@ Scene scene = new Scene(homemenu,800,400) ;
 lehmanAtriumSim_button.setOnAction(e -> {
 scene.setRoot(lehmanAtriumSim);
 lehmanAtriumSim.getChildren().add(roommenu);
+
+ 
+ 
+ 
 //lehmanAtriumSim.getChildren().add(new PathAlgorithm());
 });
 
@@ -372,6 +396,10 @@ lehmanAtriumSim.getChildren().add(roommenu);
 ecsseHallwaySim_button.setOnAction(e -> {
 scene.setRoot(ecsseHallwaySim);
 ecsseHallwaySim.getChildren().add(roommenu);
+ 
+ 
+ 
+ 
 });
 
 /**
@@ -380,8 +408,62 @@ ecsseHallwaySim.getChildren().add(roommenu);
 cob125Sim_button.setOnAction(e -> {
 scene.setRoot(cob125Sim);
 cob125Sim.getChildren().add(roommenu);
+ 
+ 
+ 
 });
 
+submit.setOnAction(e -> {
+
+//get textfield input from user
+String xtext = xText.getText();
+int x = Integer.parseInt(xtext); //convert string to int
+String ytext = yText.getText();
+int y = Integer.parseInt(ytext);//convert string to int
+String numObs = numObstacles.getText();
+int obs = Integer.parseInt(numObs);//convert string to int
+String numPeop = numPeople.getText();
+int people = Integer.parseInt(numPeop);//convert string to int
+
+//once submit button is pressed check to make sure input 
+//fields meet all requirements in order to go to the room.
+
+
+if(x <0){
+
+JOptionPane frame = new JOptionPane();
+JOptionPane.showMessageDialog(frame, "Please enter a positive x integer");
+}
+ 
+if(y <0){
+JOptionPane frame = new JOptionPane();
+JOptionPane.showMessageDialog(frame, "Please enter a positive y integer");
+ 
+}
+ 
+if(obs < 0){
+JOptionPane frame = new JOptionPane();
+JOptionPane.showMessageDialog(frame, "Please enter a positive integer for number of obstacles");
+}
+ 
+if(people <0){
+JOptionPane frame = new JOptionPane();
+JOptionPane.showMessageDialog(frame, "Please enter a positive integer for number of people");
+}
+ 
+if(people > 10){
+JOptionPane frame = new JOptionPane();
+JOptionPane.showMessageDialog(frame, "Number of people cannot exceed 10");
+}
+ 
+if(obs > 10){
+JOptionPane frame = new JOptionPane();
+JOptionPane.showMessageDialog(frame, "Number of obstacles cannot exceed 10");
+}
+ 
+ 
+});
+ 
 /**
 * Makes the GUI work
 */
@@ -394,5 +476,3 @@ public static void main(String[] args) {
 SE300RobotProject.launch(args);
 }
 }//end SE300RobotProject
-
-

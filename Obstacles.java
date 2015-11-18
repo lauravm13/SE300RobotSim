@@ -1,4 +1,4 @@
-package App;
+
 
 /**
  * @author Daniel D.
@@ -25,7 +25,7 @@ package App;
 
 public class Obstacles {
 	
-}
+
 	// Method that adds door to array ( 2 x 1)
 	public static void addHorizDoorToArray(int countx, int county, int[][] array){ // changes the values of the array to be either 1 x 2 or 2 x 1. the value of a door is "4".
 		array[countx][county] = 4;
@@ -60,7 +60,7 @@ public class Obstacles {
 	
 	// Method for adding chair to array ( 1 x 1 )
 	public static void addChairToArray(int countX, int countY, int[][] array){ 
-		array[countX][countY] = 3
+		array[countX][countY] = 3;
 	
 	}
 	
@@ -77,7 +77,9 @@ public class Obstacles {
 		array[countX + 3][countY] = 1;
 		array[countX + 4][countY] = 1;
 		array[countX + 5][countY] = 1;
-		array[countX + 6][countY] = 1; // x space 7
+		array[countX + 6][countY] = 1;
+		}
+		// x space 7
 		}
 		//reiterate this block per the numer of the y dimersion size of the array
 		
