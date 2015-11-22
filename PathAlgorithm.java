@@ -31,27 +31,9 @@ public class PathAlgorithm extends GridPane{
 	 *	Create a mock up of the room by creating an array, 
 	 *	the 1's in the array represent sample obstacles
 	 */	
-	int[][] array = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	};
+	// if a = 0; ba;lah
+	int[][] array = Room.COB125[][];
+	
 
 	/**
 	 * Initial location of the robot
@@ -85,72 +67,7 @@ public class PathAlgorithm extends GridPane{
 				}
 			}
 		}
-		
-		//hardcode a number of obstacles (it will be provided by the user)
-		//Number of people
-		int NumPeople = 15; 
-		//number of chairs
-		//int NumChairs=10;
-		//number of tables
-		//int NumTables=10;
-		
-		int nObs = 0;
-		//add the people to the room
-		/*while(nObs < NumPeople){
-		// get random location
-			Random random = new Random();
-			int RanRow = random.nextInt(20);
-			int RanCol = random.nextInt(20);
-			// if loc = 0 or empty, put a person there 
-			if (array[RanRow][RanCol]==0){
-				obs = new People(RanRow, RanCol);
-				add(obs,RanCol,RanRow);
-				//put a 2 in the array where the obstacle is 
-				array[RanRow][RanCol]=2;
-				obs.centerXProperty();
-				obs.centerYProperty();
-				//.add(Fruit);
-				//nObs++;
-			}
-		}*/
-		
-	/*	//add the chair
-		while(nObs < NumChairs){
-			// get random location
-				Random random = new Random();
-				int RanRow = random.nextInt(20);
-				int RanCol = random.nextInt(20);
-				// if loc = 0 or empty, put a person there 
-				if (array[RanRow][RanCol]==0){
-					obs = new Chair(RanRow, RanCol);
-					add(obs,RanCol,RanRow);
-					//put a 1 in the array where the obstacle is 
-					array[RanRow][RanCol]=1;
-					obs.centerXProperty();
-					obs.centerYProperty();
-					//.add(Fruit);
-					//nObs++;
-				}
-			}*/
-			
-		
-	/*	while(0 < NumTables){
-			// get random location
-				Random random = new Random();
-				int RanRow = random.nextInt(20);
-				int RanCol = random.nextInt(20);
-				// if loc = 0 or empty, put a person there 
-				if (array[RanRow][RanCol]==0){
-					obsT = new Table(RanRow, RanCol);
-					add(obsT,RanCol,RanRow);
-					//put a 2 in the array where the obstacle is 
-					array[RanRow][RanCol]=2;
-					//obsT.centerXProperty();
-					//obsT.centerYProperty();
-					//.add(Fruit);
-					//nObs++;
-				}
-			}*/
+	
 			
 		//print out array to check
 		System.out.print(Arrays.deepToString(array));

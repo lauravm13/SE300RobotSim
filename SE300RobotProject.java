@@ -63,9 +63,12 @@ TextField yText = new TextField();
 HBox roommenu_dimension = new HBox();
  
  
-//getting the number of obstacles
-Label obstacles = new Label("Number of obstacles: ");
-TextField numObstacles = new TextField();
+//getting the number of obstacles: chairs and tables
+Label obsChair = new Label("Number of chairs: ");
+TextField numObsChair = new TextField();
+
+Label obsTable = new Label("Number of tables: ");
+TextField numObsTable = new TextField();
  
 //getting the number of people
 Label people = new Label("Number of people: ");
@@ -279,7 +282,7 @@ homemenu.getChildren().addAll(homemenu_titles, homemenu_simButtons, homemenu_inf
 
 
 //add all items to room menu
-roommenu.getChildren().addAll(dimensionX, xText, dimensionY, yText, obstacles,numObstacles, people, numPeople, submit);
+roommenu.getChildren().addAll(dimensionX, xText, dimensionY, yText, obsChair,numObsChair,obsTable,numObsTable, people, numPeople, submit);
 
  
  
@@ -383,7 +386,71 @@ Scene scene = new Scene(homemenu,800,400) ;
 lehmanAtriumSim_button.setOnAction(e -> {
 scene.setRoot(lehmanAtriumSim);
 lehmanAtriumSim.getChildren().add(roommenu);
+final int a = 0;
 
+submit.setOnAction(f -> {
+
+	//get textfield input from user
+	String xtext = xText.getText();
+	int x = Integer.parseInt(xtext); //convert string to int
+	String ytext = yText.getText();
+	int y = Integer.parseInt(ytext);//convert string to int
+	String numObsC = numObsChair.getText();
+	int obsC = Integer.parseInt(numObsC);//convert string to int
+	String numObsT = numObsTable.getText();
+	int obsT = Integer.parseInt(numObsT);//convert string to int
+	String numPeop = numPeople.getText();
+	int people = Integer.parseInt(numPeop);//convert string to int
+
+	//once submit button is pressed check to make sure input 
+	//fields meet all requirements in order to go to the room.
+
+
+	if(x <0){
+
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Please enter a positive x integer");
+	}
+	 
+	if(y <0){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Please enter a positive y integer");
+	 
+	}
+	 
+	if(obsC < 0){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Please enter a positive integer for number of obstacles");
+	}
+	 
+	if(people <0){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Please enter a positive integer for number of people");
+	}
+	 
+	if(people > 10){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Number of people cannot exceed 10");
+	}
+	 
+	if(obsT > 10){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Number of obstacles cannot exceed 10");
+	}
+	 
+
+	Room.Atrium(x,y,obsC,obsT, people);
+	
+	Scene game = new Scene(new PathAlgorithm());
+
+
+	stage.setScene(game);
+	stage.setResizable(false);
+	stage.setTitle("Robot Simulation");
+	System.out.printf("Fun shiz: %.1f %.1f", game.getWidth(), game.getHeight());
+	stage.show();
+
+	});
  
  
  
@@ -396,7 +463,62 @@ lehmanAtriumSim.getChildren().add(roommenu);
 ecsseHallwaySim_button.setOnAction(e -> {
 scene.setRoot(ecsseHallwaySim);
 ecsseHallwaySim.getChildren().add(roommenu);
- 
+final int a = 1;
+
+submit.setOnAction(f -> {
+
+	//get textfield input from user
+	String xtext = xText.getText();
+	int x = Integer.parseInt(xtext); //convert string to int
+	String ytext = yText.getText();
+	int y = Integer.parseInt(ytext);//convert string to int
+	String numObsC = numObsChair.getText();
+	int obsC = Integer.parseInt(numObsC);//convert string to int
+	String numObsT = numObsTable.getText();
+	int obsT = Integer.parseInt(numObsT);//convert string to int
+	String numPeop = numPeople.getText();
+	int people = Integer.parseInt(numPeop);//convert string to int
+
+	//once submit button is pressed check to make sure input 
+	//fields meet all requirements in order to go to the room.
+
+
+	if(x <0){
+
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Please enter a positive x integer");
+	}
+	 
+	if(y <0){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Please enter a positive y integer");
+	 
+	}
+	 
+	if(obsC < 0){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Please enter a positive integer for number of obstacles");
+	}
+	 
+	if(people <0){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Please enter a positive integer for number of people");
+	}
+	 
+	if(people > 10){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Number of people cannot exceed 10");
+	}
+	 
+	if(obsT > 10){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Number of obstacles cannot exceed 10");
+	}
+	 
+
+	Room.Hallway(x,y,obsC,obsT, people);
+
+	});
  
  
  
@@ -408,60 +530,62 @@ ecsseHallwaySim.getChildren().add(roommenu);
 cob125Sim_button.setOnAction(e -> {
 scene.setRoot(cob125Sim);
 cob125Sim.getChildren().add(roommenu);
- 
- 
- 
-});
+//final int a= 2;
+//System.out.println(a);
+submit.setOnAction(f -> {
 
-submit.setOnAction(e -> {
+	//get textfield input from user
+	String xtext = xText.getText();
+	int x = Integer.parseInt(xtext); //convert string to int
+	String ytext = yText.getText();
+	int y = Integer.parseInt(ytext);//convert string to int
+	String numObsC = numObsChair.getText();
+	int obsC = Integer.parseInt(numObsC);//convert string to int
+	String numObsT = numObsTable.getText();
+	int obsT = Integer.parseInt(numObsT);//convert string to int
+	String numPeop = numPeople.getText();
+	int people = Integer.parseInt(numPeop);//convert string to int
 
-//get textfield input from user
-String xtext = xText.getText();
-int x = Integer.parseInt(xtext); //convert string to int
-String ytext = yText.getText();
-int y = Integer.parseInt(ytext);//convert string to int
-String numObs = numObstacles.getText();
-int obs = Integer.parseInt(numObs);//convert string to int
-String numPeop = numPeople.getText();
-int people = Integer.parseInt(numPeop);//convert string to int
-
-//once submit button is pressed check to make sure input 
-//fields meet all requirements in order to go to the room.
+	//once submit button is pressed check to make sure input 
+	//fields meet all requirements in order to go to the room.
 
 
-if(x <0){
+	if(x <0){
 
-JOptionPane frame = new JOptionPane();
-JOptionPane.showMessageDialog(frame, "Please enter a positive x integer");
-}
- 
-if(y <0){
-JOptionPane frame = new JOptionPane();
-JOptionPane.showMessageDialog(frame, "Please enter a positive y integer");
- 
-}
- 
-if(obs < 0){
-JOptionPane frame = new JOptionPane();
-JOptionPane.showMessageDialog(frame, "Please enter a positive integer for number of obstacles");
-}
- 
-if(people <0){
-JOptionPane frame = new JOptionPane();
-JOptionPane.showMessageDialog(frame, "Please enter a positive integer for number of people");
-}
- 
-if(people > 10){
-JOptionPane frame = new JOptionPane();
-JOptionPane.showMessageDialog(frame, "Number of people cannot exceed 10");
-}
- 
-if(obs > 10){
-JOptionPane frame = new JOptionPane();
-JOptionPane.showMessageDialog(frame, "Number of obstacles cannot exceed 10");
-}
- 
- 
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Please enter a positive x integer");
+	}
+	 
+	if(y <0){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Please enter a positive y integer");
+	 
+	}
+	 
+	if(obsC < 0){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Please enter a positive integer for number of obstacles");
+	}
+	 
+	if(people <0){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Please enter a positive integer for number of people");
+	}
+	 
+	if(people > 10){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Number of people cannot exceed 10");
+	}
+	 
+	if(obsT > 10){
+	JOptionPane frame = new JOptionPane();
+	JOptionPane.showMessageDialog(frame, "Number of obstacles cannot exceed 10");
+	}
+	 
+
+	Room.COB125(x,y,obsC,obsT, people);
+
+	});
 });
  
 /**
