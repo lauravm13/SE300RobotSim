@@ -25,6 +25,9 @@ public class PathAlgorithm extends GridPane{
 	public Robot robot;
 	public Circle obs;
 	public Rectangle obsT;
+	public Table table;
+	public Chair chair;
+
 
 
 	/**
@@ -32,7 +35,7 @@ public class PathAlgorithm extends GridPane{
 	 *	the 1's in the array represent sample obstacles
 	 */	
 	// if a = 0; ba;lah
-	int[][] array = Room.COB125[][];
+	int[][] array;// = Room.COB125[][];
 	
 
 	/**
@@ -51,8 +54,10 @@ public class PathAlgorithm extends GridPane{
 	 */
 	Rectangle rectangle;
 
-	public PathAlgorithm() {		
+	public PathAlgorithm(int[][] room) {		
 
+		// Load array
+		array = room;
 
 		/**
 		 * Place a square where there is a 1 on the array
@@ -60,11 +65,27 @@ public class PathAlgorithm extends GridPane{
 
 		for (int i = 1; i < array.length; i++) {
 			for (int j = 0; j < array[i].length; j++) {
-				if (array[i][j]==0){
-					rectangle = new Rectangle(SQUARESIZE, SQUARESIZE);
-					//rectangle.setFill(Color.BLUE);
-					add(rectangle,j,i);
+
+				rectangle = new Rectangle(SQUARESIZE, SQUARESIZE);
+
+				switch(array[i][j]){
+				case 0:
+					rectangle.setFill(Color.WHITE);
+					break;
+				case Obstacles.CHAIR:
+					rectangle.setFill(Color.BISQUE);
+					break;
+				case Obstacles.PERSON:
+					rectangle.setFill(Color.AQUA);
+					break;
+				case Obstacles.TABLE: case Obstacles.COBTABLE:
+					rectangle.setFill(Color.BURLYWOOD);
+					break;
+				case Obstacles.WALL:
+					rectangle.setFill(Color.BLACK);
 				}
+				
+				add(rectangle,j,i);
 			}
 		}
 	
@@ -159,7 +180,11 @@ public class PathAlgorithm extends GridPane{
 			/**
 			 * Check to see if the next position is blocked
 			 */
-			if (array[locRow][locCol+1]==0){
+			int obstacle = array[locRow][locCol+1];
+			if (obstacle == Obstacles.PERSON){
+				// hand flyer
+			}
+			else if (obstacle == 0){
 				locCol++;
 				PathAlgorithm.setColumnIndex(robot, locCol);
 			}

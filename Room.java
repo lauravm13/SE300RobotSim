@@ -81,7 +81,7 @@ public class Room {
 		return COB125;
 	}
 	//  Method for creating the Atrium
-	public static void Atrium(int x, int y, int obsC, int obsT, int people){ 
+	public static int[][] Atrium(int x, int y, int obsC, int obsT, int people){ 
 		
 		int userinputX = x;
 		int userinputY = y; 
@@ -129,10 +129,12 @@ public class Room {
 			System.out.println("");
 		}
 		// THERE ARE NO TABLES IN THE ATRIUM or doors , just walls
+		
+		return Atrium;
 	}
 	// Method for creating the Hallway
 	//  Method that mods array to fit dimensions of a Hallway.
-	public static void Hallway(int x, int y, int obsC, int obsT, int people){ 
+	public static int[][] Hallway(int x, int y, int obsC, int obsT, int people){ 
 		
 		int userinputX = x;
 		int userinputY = y; 
@@ -191,6 +193,8 @@ public class Room {
 			}
 			System.out.println("");
 		}
+		
+		return Hallway;
 	}
 
 	public void finalize() throws Throwable {
