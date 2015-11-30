@@ -5,8 +5,13 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -23,12 +28,10 @@ public class PathAlgorithm extends GridPane{
 
 	private BorderPane g;
 	public Robot robot;
-	public Circle obs;
-	public Rectangle obsT;
-	public Table table;
-	public Chair chair;
+	public Flyers flyer;
 
-
+	/** Animation for moving the robot */
+	Timeline animation;
 
 	/**
 	 *	Create a mock up of the room by creating an array, 
@@ -46,7 +49,7 @@ public class PathAlgorithm extends GridPane{
 	int locCol = 9;
 	int locRow = 1;
 
-	public static final int SQUARESIZE = 25;
+	public static final int SQUARESIZE = 20;
 
 
 	/** 
@@ -63,7 +66,7 @@ public class PathAlgorithm extends GridPane{
 		 * Place a square where there is a 1 on the array
 		 */
 
-		for (int i = 1; i < array.length; i++) {
+		for (int i = 0; i < array.length; i++) {
 			for (int j = 0; j < array[i].length; j++) {
 
 				rectangle = new Rectangle(SQUARESIZE, SQUARESIZE);
@@ -73,16 +76,20 @@ public class PathAlgorithm extends GridPane{
 					rectangle.setFill(Color.WHITE);
 					break;
 				case Obstacles.CHAIR:
-					rectangle.setFill(Color.BISQUE);
+					rectangle.setFill(Color.CHOCOLATE);
 					break;
 				case Obstacles.PERSON:
-					rectangle.setFill(Color.AQUA);
+					rectangle.setFill(Color.RED);
 					break;
-				case Obstacles.TABLE: case Obstacles.COBTABLE:
+				case Obstacles.TABLE: 
+					rectangle.setFill(Color.BROWN);
+					break;
+				case Obstacles.COBTABLE: 
 					rectangle.setFill(Color.BURLYWOOD);
 					break;
 				case Obstacles.WALL:
-					rectangle.setFill(Color.BLACK);
+					rectangle.setFill(Color.GREY);
+					break;
 				}
 				
 				add(rectangle,j,i);
@@ -102,7 +109,7 @@ public class PathAlgorithm extends GridPane{
 		 *if number is 1 move up, if 2 move down, if 3 move left, and if 4 move right
 		 */
 
-		Timeline animation = new Timeline(
+		animation = new Timeline(
 				new KeyFrame(Duration.millis(200),
 						e -> moveRobot()));
 		animation.setCycleCount(Timeline.INDEFINITE);
@@ -128,7 +135,12 @@ public class PathAlgorithm extends GridPane{
 			/**
 			 * Check to see if the next position is blocked
 			 */
-			if (array[locRow+1][locCol]==0){
+			int obstacle = array[locRow+1][locCol];
+			
+			if (obstacle == Obstacles.PERSON){
+				showflyer();
+			}
+			else if (obstacle==0){
 				locRow++;
 				PathAlgorithm.setRowIndex(robot, locRow);
 			}
@@ -145,7 +157,12 @@ public class PathAlgorithm extends GridPane{
 			/**
 			 * Check to see if the next position is blocked
 			 */
-			if (array[locRow-1][locCol]==0){
+			int obstacle = array[locRow-1][locCol];
+			
+			if (obstacle == Obstacles.PERSON){
+				showflyer();
+			}
+			else if (obstacle==0){
 				locRow--;
 				PathAlgorithm.setRowIndex(robot, locRow);
 			}
@@ -162,7 +179,12 @@ public class PathAlgorithm extends GridPane{
 			/**
 			 * Check to see if the next position is blocked
 			 */
-			if (array[locRow][locCol-1]==0){
+			int obstacle = array[locRow][locCol-1];
+			
+			if (obstacle == Obstacles.PERSON){
+				showflyer();
+			}
+			else if (obstacle==0){
 				locCol--;
 				PathAlgorithm.setColumnIndex(robot, locCol);
 			}
@@ -181,8 +203,9 @@ public class PathAlgorithm extends GridPane{
 			 * Check to see if the next position is blocked
 			 */
 			int obstacle = array[locRow][locCol+1];
+		
 			if (obstacle == Obstacles.PERSON){
-				// hand flyer
+				showflyer();
 			}
 			else if (obstacle == 0){
 				locCol++;
@@ -229,6 +252,38 @@ public class PathAlgorithm extends GridPane{
 		}
 
 	}
+	
+	public void showflyer(){
+		
+		Scene flyerScene;
+		Stage stage;
+		
+		ImageView flyer = new ImageView(new Image("flyer.jpg", 200, 200, true, true));
+		VBox flyerpane = new VBox();
+		Button sawflyer = new Button("Acknowledged!");
+		flyerpane.getChildren().addAll(flyer,sawflyer);
+		animation.pause();
+		
+	
+		flyerScene = new Scene(flyerpane);
+		stage = new Stage();
+
+		sawflyer.setOnAction(e -> {
+			stage.close();
+			animation.play();
+		});
+		
+		
+		stage.setResizable(false);
+		//primaryStage.setFullScreen(true);
+		stage.setScene(flyerScene);
+		stage.setTitle("Flyer") ;
+		stage.show();
+	}
 
 }//end PathAlgorithm
+
+// display FLyers
+// get top wall in COB ROOm
+// Fix atrium
  

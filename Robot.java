@@ -21,7 +21,7 @@ public class Robot extends StackPane {
 		/**
 		 * create the object robot
 		 */
-		ImageView robot = new ImageView(new Image("robotpic.jpg", 25,25 , false, true));
+		ImageView robot = new ImageView(new Image("robotpic.jpg", 20,20 , false, true));
 		
 //		Circle robot;
 //		robot = new Circle(12.5);

@@ -62,8 +62,8 @@ public Robot m_Robot;*/
 	VBox roommenu = new VBox();
 
 	//getting the dimensions of the room
-	Label dimensionX = new Label("X Dimension: ");
-	Label dimensionY = new Label("Y Dimension: ");
+	Label dimensionX = new Label("Y Dimension: ");
+	Label dimensionY = new Label("X Dimension: ");
 	TextField xText = new TextField();
 	TextField yText = new TextField();
 	HBox roommenu_dimension = new HBox();
@@ -428,7 +428,7 @@ public Robot m_Robot;*/
 //		System.out.printf("Fun shiz: %.1f %.1f", game.getWidth(), game.getHeight());
 		
 		primaryStage.setResizable(false);
-		primaryStage.setFullScreen(true);
+		//primaryStage.setFullScreen(true);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("SE300 Project") ;
 		primaryStage.show();
