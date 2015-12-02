@@ -32,31 +32,11 @@ public Room m_Room;
 public Robot m_Robot;*/
 
 
-	/**
-	 * Here we create all of the panes for the GUI
-	 */
-
-	/**
-	 * Panes for the home menu
-	 */
-	/**
-	 * This is the container pane that will pull in all the other panes for the home menu
-	 */
 	VBox homemenu = new VBox() ; 
-	/**
-	 * This is the pane that will hold the title
-	 */
 	VBox homemenu_titles = new VBox() ; 
-	/**
-	 * This pane will hold the buttons that let the user choose which sim to run
-	 */
 	HBox homemenu_simButtons = new HBox() ; 
-	/**
-	 * This pane holds the about and questions/how to buttons
-	 */
 	HBox homemenu_information = new HBox() ; 
 
-	/** Main scene for the stage */
 	private Scene scene;
 
 	// Room menu to input dimensions
@@ -83,368 +63,163 @@ public Robot m_Robot;*/
 
 
 	//Submit button
-	Button submit = new Button("submit");
+	Button submit_button = new Button("submit");
 
-	/** The currently selected room */
+	
 	RoomConst selectedRoom;
 
-
-	/**
-	 * panes for the Lehman atrium sim 
-	 *This container pane will pull in the other panes for the Lehman atrium sim
-	 */
 	VBox lehmanAtriumSim = new VBox() ;
-	/**
-	 * This pane will hold the titles
-	 */
 	VBox lehmanAtriumSim_titles = new VBox() ; 
-	/**
-	 * This pane will hold lehmanAtriumSim_simulation and lehmanAtriumSim_userInput
-	 */
 	HBox lehmanAtriumSim_content = new HBox() ; 
-	/**
-	 * This pane will hold the actual simulation for the user to watch
-	 */
 	VBox lehmanAtriumSim_simulation = new VBox() ; 
-	/**
-	 * This pane will hold the user inputs and the run button
-	 */
 	VBox lehmanAtriumSim_userInput = new VBox() ; 
-	/**
-	 * This pane will hold the back, about button, and how to buttons
-	 */
 	HBox lehmanAtriumSim_information = new HBox() ; 
-
-	/**
-	 * panes for the ecsse hallway sim
-	 *This container pane will pull in the other panes for the ECSSE hallway sim
-	 */
 	VBox ecsseHallwaySim = new VBox() ;
-	/**
-	 * This pane that will hold the titles
-	 */
 	VBox ecsseHallwaySim_titles = new VBox() ; 
-	/**
-	 * This pane that will hold ecsseHallwaySim_simulation and ecsseHallwaySim_userInput
-	 */
 	HBox ecsseHallwaySim_content = new HBox() ; 
-	/**
-	 * This pane will hold the actual simulation for the user to watch
-	 */
 	VBox ecsseHallwaySim_simulation = new VBox() ; 
-	/**
-	 * This pane that will hold the user inputs and the run button
-	 */
 	VBox ecsseHallwaySim_userInput = new VBox() ; 
-	/**
-	 * This pane will hold the back, the about, and the how to buttons
-	 */
 	HBox ecsseHallwaySim_information = new HBox() ; 
-
-	/**
-	 * panes for the COB room sim 
-	 *This container pane will pull in the other panes for the COB room sim
-	 */
 	VBox cob125Sim = new VBox() ;
-	/**
-	 * This pane that will hold the titles
-	 */
 	VBox cob125Sim_titles = new VBox() ; 
-	/**
-	 * This pane will hold lehmanAtriumSim_simulation and lehmanAtriumSim_userInput
-	 */
 	HBox cob125Sim_content = new HBox() ; 
-	/**
-	 * This pane will hold the actual simulation for the user to watch
-	 */
 	VBox cob125Sim_simulation = new VBox() ; 
-	/**
-	 * This pane will hold the user inputs and the run button
-	 */
 	VBox cob125Sim_userInput = new VBox() ; 
-	/**
-	 * This pane will hold the back, the about, and the how to buttons
-	 */
 	HBox cob125Sim_information = new HBox() ; 
-
-	/**
-	 * Create all of the text for the GUI 
-//Text for the home menu
-//This is the title for the home menu 
-	 */
 	Text homemenu_title = new Text("ECSSE Robot Simulation") ;
-	/**
-	 * This is the  subtitle for the home menu
-	 */
 	Text homemenu_subtitle = new Text("SE300 Fall 2015 Project") ; 
-
-	/**
-	 * This text is the title for the Lehman atrium simulation
-	 */
 	Text lehmanAtriumSim_title = new Text("Lehman Atrium Simulation") ; 
-	/**
-	 * Text title  for the lehman atrium simulation
-	 */
-	Text lehmanAtriumSim_simTitle = new Text("Simulation") ; 
-	/**
-	 * Text title for the lehman atrium user input
-	 */
-	Text lehmanAtriumSim_uiTitle = new Text("This is where the user input will be") ;
+	Text lehmanAtriumSim_uiTitle = new Text("Please input values into the text box. Valid input parameters are: "
+			+ "\nY Dimension- 1-infinite"
+			+ "\nX Dimension- 1-infinite"
+			+ "\nNumber of Chairs- 0-10"
+			+ "\nNumber Tables- 0-10"
+			+ "\nNumber of People- 0-10"
+			+ "\nIf you input an invalid parameter the program will not run and you will have to restart the program.") ;
 
-	/**
-	 * Text for ECSSE hallways
-	 */
 	Text ecsseHallwaySim_title = new Text("ECSSE Hallway Simulation") ; 
-	/**
-	 * Text title for the ECSSE hallway sim
-	 */
-	Text ecsseHallwaySim_simTitle = new Text("Simulation") ;
-	/**
-	 * Text title for the ex hallway simulation input
-	 */
-	Text ecsseHallwaySim_uiTitle = new Text("This is where user input will be") ; 
+	Text ecsseHallwaySim_uiTitle = new Text("Please input values into the text box. Valid input parameters are: "
+			+ "\nY Dimension- 1-infinite"
+			+ "\nX Dimension- 1-infinite"
+			+ "\nNumber of Chairs- 0-10"
+			+ "\nNumber Tables- 0-10"
+			+ "\nNumber of People- 0-10"
+			+ "\nIf you input an invalid parameter the program will not run and you will have to restart the program.") ;
 
-	/**
-	 * This is the text that is for the COB simulation
-	 */
 	Text cob125Sim_title = new Text("COB Room 125 Simulation") ;
-	/**
-	 * Text title for the COB sim
-	 */
-	Text cob125Sim_simTitle = new Text("Simulation") ; 
-	/**
-	 * Text title for the COB GUI
-	 */
-	Text cob125Sim_uiTitle = new Text("This is where user input will be") ; 
+	Text cob125Sim_uiTitle = new Text("Please input values into the text box. Valid input parameters are: "
+			+ "\nY Dimension- 1-infinite"
+			+ "\nX Dimension- 1-infinite"
+			+ "\nNumber of Chairs- 0-10"
+			+ "\nNumber Tables- 0-10"
+			+ "\nNumber of People- 0-15"
+			+ "\nIf you input an invalid parameter the program will not run and you will have to restart the program.") ;
 
-
-	/**
-	 * Create all the buttons for the GUI
-	 */
-
-	/**
-	 * Buttons for the home menu
-	 */
-	Button homemenu_infobutton = new Button("info") ; 
-
-	//Create dialog box containing parameters for dimensions and the max amount of people/ obstacles that can be entered
-
-	/**
-	 * Buttons for the Lehman atrium
-	 */
-	/**
-	 *This button will take you to the Lehman atrium simulation screen from the home menu 
-	 */
 	Button lehmanAtriumSim_button = new Button("Lehman \nAtrium \nSimulation") ; 
-	/**
-	 * This button will take you to some info about the sim (at this point user is at the Lehman sim page)
-	 */
-	Button lehmanAtriumSim_infobutton = new Button("info") ;
-	/**
-	 * This button will take you to the screen for the ECSSE Hallway simulation from the home menu
-	 */
 	Button ecsseHallwaySim_button = new Button("ECSSE \nHallway \nSimulation") ; 
-	/**
-	 * This button will take you to some infor about the sim (at this point the user is at ECSSE hallway sim)
-	 */
-	Button ecsseHallwaySim_infobutton = new Button("info") ;
-	/**
-	 * This is the button that will talk you to the cob simulation from the home menu
-	 */
 	Button cob125Sim_button = new Button("COB \nRoom 125 \nSimulation") ;
-	/**
-	 * This button will take you to some info about the sim (at this point the user is at COB125 hallway sim)
-	 */
-	Button cob125Sim_infobutton = new Button("info") ;
-
-
+	
 	public SE300RobotProject(){
 	}
 
 	/**
-	 * making the GUI work! yay!
+	 * creates the main menu
 	 */
 	@Override
 	
 	public void start(Stage primaryStage) throws Exception {
 
 		//here human factors plays with color and size :) 
-		final String IEEE_ORANGE = "#E37222" ;
+		final String IEEE_ORANGE = "#E37222";
+		final String IEEE_BLUE = "#006699" ; 
+		
 		homemenu_title.setFont(new Font("Arial", 36));
 		homemenu_title.setFill(Color.web(IEEE_ORANGE));
 		
 		homemenu_subtitle.setFont(new Font("Arial", 28));
 		homemenu_subtitle.setFill(Color.web(IEEE_ORANGE));
 		
-		lehmanAtriumSim_title.setFont(new Font("Arial", 18)); 
-		lehmanAtriumSim_simTitle.setFont(new Font("Arial", 14));
-		lehmanAtriumSim_uiTitle.setFont(new Font("Arial", 14));
+		lehmanAtriumSim_title.setFont(new Font("Arial", 24)); 
+		lehmanAtriumSim_title.setFill(Color.web(IEEE_BLUE));
+		//lehmanAtriumSim_simTitle.setFont(new Font("Arial", 14));
+		lehmanAtriumSim_uiTitle.setFont(new Font("Arial", 16));
+		lehmanAtriumSim_uiTitle.setFill(Color.web(IEEE_ORANGE)); 
 		
-		lehmanAtriumSim_button.setStyle("-fx-font: 22 arial; -fx-base: #006699;") ; 
-		ecsseHallwaySim_button.setStyle("-fx-font: 22 arial; -fx-base: #006699;") ; 
-		cob125Sim_button.setStyle("-fx-font: 22 arial; -fx-base: #006699;") ; 
+		ecsseHallwaySim_title.setFont(new Font("Arial", 24)); 
+		ecsseHallwaySim_title.setFill(Color.web(IEEE_BLUE));
+		//ecsseHallwaySim_simTitle.setFont(new Font("Arial", 18));
+		ecsseHallwaySim_uiTitle.setFont(new Font("Arial", 16));
+		ecsseHallwaySim_uiTitle.setFill(Color.web(IEEE_ORANGE)); 
 		
+		cob125Sim_title.setFont(new Font("Arial", 24)); 
+		cob125Sim_title.setFill(Color.web(IEEE_BLUE));
+		cob125Sim_uiTitle.setFont(new Font("Arial", 16));
+		cob125Sim_uiTitle.setFill(Color.web(IEEE_ORANGE));
 		
-		/**
-		 * This is the exciting part where we put panes where they should go :)
-		 */
+		final String BUTTON_STYLE = "-fx-font: 22 arial; -fx-base: #006699; -fx-padding: 8 15 15 15; "
+				+ "-fx-background-insets: 0, 0 0 5 0, 0 0 6 0, 0 0 7 0; -fx-background-radius: 24; -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.75), 15, 0, 0, 1);";
+		lehmanAtriumSim_button.setStyle(BUTTON_STYLE) ; 
+		ecsseHallwaySim_button.setStyle(BUTTON_STYLE) ; 
+		cob125Sim_button.setStyle(BUTTON_STYLE);
+		
+		submit_button.setStyle("-fx-font: 14 arial; -fx-base: #008542; -fx-padding:  8 15 15 15; "
+				+ "-fx-background-insets: 0, 0 0 5 0, 0 0 6 0, 0 0 7 0; -fx-background-radius: 24; -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.75), 15, 0, 0, 1);"); 
 
-		/**
-		 * Information box for the home menu
-		 */
-		homemenu_information.getChildren().addAll(lehmanAtriumSim_infobutton) ; 
-		/**
-		 * Button box for the home menu
-		 */
 		homemenu_simButtons.getChildren().addAll(lehmanAtriumSim_button, ecsseHallwaySim_button, cob125Sim_button) ;
-		/**
-		 * Title box
-		 */
 		homemenu_titles.getChildren().addAll(homemenu_title, homemenu_subtitle) ;
-		/**
-		 * Pulling together our home menu
-		 */
 		homemenu.getChildren().addAll(homemenu_titles, homemenu_simButtons, homemenu_information) ; 
 
 
 		//add all items to room menu
-		roommenu.getChildren().addAll(dimensionX, xText, dimensionY, yText, obsChair,numObsChair,obsTable,numObsTable, people, numPeople, submit);
-
-
-
-
-		/**
-		 * Information box for Lehman atrium sim
-		 */
-		lehmanAtriumSim_information.getChildren().addAll(homemenu_infobutton) ; 
-		/**
-		 * Content for the simulation
-		 * Pulling content into the simulation
-		 */ 
-		lehmanAtriumSim_simulation.getChildren().addAll(lehmanAtriumSim_simTitle) ;
-		/**
-		 * put actual sim context here 
-		 *pulling in content for user input
-		 */
+		roommenu.getChildren().addAll(dimensionX, xText, dimensionY, yText, obsChair,numObsChair,obsTable,numObsTable, people, numPeople, submit_button);
 		lehmanAtriumSim_userInput.getChildren().addAll(lehmanAtriumSim_uiTitle) ; 
-		/**
-		 * put in user input here for sprint 2 
-		 *pull sim and ui into content pane
-		 */
 		lehmanAtriumSim_content.getChildren().addAll(lehmanAtriumSim_simulation, lehmanAtriumSim_userInput) ; 
-		/**
-		 * Sim title
-		 */
 		lehmanAtriumSim_titles.getChildren().addAll(lehmanAtriumSim_title) ; 
-		/**
-		 * Pull everything into the container GUI!!
-		 */
 		lehmanAtriumSim.getChildren().addAll(lehmanAtriumSim_titles, lehmanAtriumSim_content, lehmanAtriumSim_information) ; 
-
-
-
-		/**
-		 * Pulling together ecsse hallway
-		 */
-		ecsseHallwaySim_information.getChildren().addAll(ecsseHallwaySim_infobutton) ; 
-		/**
-		 * Content for the simulation
-		 * Pulling content into the simulation
-		 */
-		// 
-		ecsseHallwaySim_simulation.getChildren().addAll(ecsseHallwaySim_simTitle) ;
-		/**
-		 * Put actual sim context here 
-		 * Pulling in content for user input
-		 */
 		ecsseHallwaySim_userInput.getChildren().addAll(ecsseHallwaySim_uiTitle) ; 
-		/**
-		 * Put in user input here for sprint 2 
-		 * Pull sim and ui into content pane 
-		 */
 		ecsseHallwaySim_content.getChildren().addAll(ecsseHallwaySim_simulation, ecsseHallwaySim_userInput) ; 
-		/**
-		 * Sim title
-		 */
 		ecsseHallwaySim_titles.getChildren().addAll(ecsseHallwaySim_title) ; 
-		/**
-		 * Pull everything into the container GUI!!
-		 */
 		ecsseHallwaySim.getChildren().addAll(ecsseHallwaySim_titles, ecsseHallwaySim_content, ecsseHallwaySim_information) ; 
-
-
-
-		/**
-		 * Pulling together ECSSE hallway
-		 */
-		cob125Sim_information.getChildren().addAll(cob125Sim_infobutton) ; 
-		/**
-		 * Content for the simulation 
-		 * Pulling content into the simulation
-		 */
-		cob125Sim_simulation.getChildren().addAll(cob125Sim_simTitle) ;
-		/**
-		 * Put actual sim context here
-		 * Pulling in content for user input
-		 */ 
 		cob125Sim_userInput.getChildren().addAll(cob125Sim_uiTitle) ; 
-		/**
-		 * Put in user input here for sprint 2 
-		 * Pull sim and ui into content pane
-		 */
 		cob125Sim_content.getChildren().addAll(cob125Sim_simulation, cob125Sim_userInput) ; 
-		/**
-		 * Sim title
-		 */
 		cob125Sim_titles.getChildren().addAll(cob125Sim_title) ; 
-		/**
-		 * Pull everything into the container GUI!!
-		 */
 		cob125Sim.getChildren().addAll(cob125Sim_titles, cob125Sim_content, cob125Sim_information) ; 
 
 
 		scene = new Scene(homemenu, Screen.getMainScreen().getWidth(), Screen.getMainScreen().getHeight());
 
 
-		/**
-		 * Taking user to the Lehman atrium sim when button is clicked
-		 */
+		
+		 //Taking user to the Lehman atrium sim when button is clicked
+		 
 		lehmanAtriumSim_button.setOnAction(e -> {
 			scene.setRoot(lehmanAtriumSim);
 			lehmanAtriumSim.getChildren().add(roommenu);
 			selectedRoom = RoomConst.ATRIUM;
-//				Room.Atrium(x,y,obsC,obsT, people);
+
 		});
 
-		/**
-		 * Taking user to the ECSSE hallway sim when button is clicked 
-		 */
+		
+		 //Taking user to the ECSSE hallway sim when button is clicked 
+		
 		ecsseHallwaySim_button.setOnAction(e -> {
 			scene.setRoot(ecsseHallwaySim);
 			ecsseHallwaySim.getChildren().add(roommenu);
 			selectedRoom = RoomConst.HALLWAY;
 		});
 
-		/**
-		 * Taking the user to the COB125 sim when button is clicked
-		 */
+		
+		 //Taking the user to the COB125 sim when button is clicked
+		 
 		cob125Sim_button.setOnAction(e -> {
 			scene.setRoot(cob125Sim);
 			cob125Sim.getChildren().add(roommenu);
 			selectedRoom = RoomConst.COB;
 		});
 
-		/**
-		 * Makes the GUI work
-		 */
 
-		submit.setOnAction(new SubmitHandler());
+		submit_button.setOnAction(new SubmitHandler());
 		
-//		Scene game = new Scene(new PathAlgorithm());
-//		primaryStage.setScene(game);
-		
-//		primaryStage.setTitle("Robot Simulation");
-//		System.out.printf("Fun shiz: %.1f %.1f", game.getWidth(), game.getHeight());
 		
 		primaryStage.setResizable(false);
 		//primaryStage.setFullScreen(true);
@@ -452,11 +227,20 @@ public Robot m_Robot;*/
 		primaryStage.setTitle("SE300 Project") ;
 		primaryStage.show();
 	}
-
+/** 
+ * Main methods that runs the program
+ * @param args
+ */
 	public static void main(String[] args) {
 		SE300RobotProject.launch(args);
 	}
 	
+	/**
+	 * Gets the value from the user input and returns it to room class to display the correct
+	 * amount of obstacles
+	 * @author lauravm_13
+	 *
+	 */
 	class SubmitHandler implements EventHandler<ActionEvent>{
 
 		@Override
@@ -493,15 +277,23 @@ public Robot m_Robot;*/
 				JOptionPane frame = new JOptionPane();
 				JOptionPane.showMessageDialog(frame, "Please enter a positive integer for number of obstacles");
 			}
+			if(obsC > 10){
+				JOptionPane frame = new JOptionPane();
+				JOptionPane.showMessageDialog(frame, "Number of obstacles cannot exceed 10");
+			}
 
 			if(people <0){
 				JOptionPane frame = new JOptionPane();
 				JOptionPane.showMessageDialog(frame, "Please enter a positive integer for number of people");
 			}
 
-			if(people > 10){
+			if(people > 15){
 				JOptionPane frame = new JOptionPane();
 				JOptionPane.showMessageDialog(frame, "Number of people cannot exceed 10");
+			}
+			if(obsT < 0){
+				JOptionPane frame = new JOptionPane();
+				JOptionPane.showMessageDialog(frame, "Please enter a positive integer for number of obstacles");
 			}
 
 			if(obsT > 10){
