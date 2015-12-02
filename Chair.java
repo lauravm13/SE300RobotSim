@@ -9,14 +9,13 @@
  */
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
 
 
-public class Chair extends StackPane {
+public class Chair extends TileThing {
 
 	public Chair(){
 		//open the robot image
-		ImageView chair = new ImageView(new Image("chairpic.jpg", 30,30 , true, true));
+		ImageView chair = new ImageView(new Image(IMG_DIR + "chairpic.jpg", 30,30 , true, true));
 		//add the object to the pane
 		getChildren().add(chair);
 	}

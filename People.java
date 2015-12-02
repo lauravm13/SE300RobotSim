@@ -7,14 +7,13 @@
  */
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
 
 
-public class People extends StackPane {
+public class People extends TileThing {
 
 	public People(){
 		//open the robot image
-		ImageView person = new ImageView(new Image("personpic.jpg", 30,30, true, true));
+		ImageView person = new ImageView(new Image(IMG_DIR + "personpic.jpg", 30,30, true, true));
 		//add the object to the pane
 		getChildren().add(person);
 	}

@@ -8,14 +8,13 @@
  */
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
 
 
-public class Robot extends StackPane {
+public class Robot extends TileThing {
 
 	public Robot(){
 		//open the robot image
-		ImageView robot = new ImageView(new Image("robotpic.jpg", 30,30 , false, true));
+		ImageView robot = new ImageView(new Image(IMG_DIR + "robotpic.jpg", 30,30 , false, true));
 		//add the object to the pane
 		getChildren().add(robot);
 	}
