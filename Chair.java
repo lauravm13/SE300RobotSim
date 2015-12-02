@@ -1,43 +1,23 @@
 
 
+
 /**
  * @author mayorl
  * @version 1.0
- * @created 07-Oct-2015 5:06:21 PM
- * Description: Obstacle that the robot must avoid
+ * @created 07-Oct-2015 5:06:34 PM
+ * Description: This class gets an image of the robot and displays it in a StackPane
  */
-/*public class Chair extends Obstacles {
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
+
+
+public class Chair extends StackPane {
 
 	public Chair(){
-
+		//open the robot image
+		ImageView chair = new ImageView(new Image("chairpic.jpg", 30,30 , true, true));
+		//add the object to the pane
+		getChildren().add(chair);
 	}
-
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
-}//end Chair*/
-
-import javafx.scene.paint.Color;
-		import javafx.scene.shape.Circle;
-
-		//this class create a circle that will be each fruit with a specified size and color
-		public class Chair extends Circle {
-
-			@SuppressWarnings("unused")
-			private final int row;
-			@SuppressWarnings("unused")
-			private final int col;
-			
-			//set each fruit to a radius of 7.5 and red
-			public Chair(int row, int col){
-				super(10);
-				setFill(Color.BROWN);
-				this.row = row;
-				this.col = col;
-			}
-	
-
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
-}//end People
+}
