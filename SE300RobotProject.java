@@ -11,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -233,7 +235,7 @@ public Robot m_Robot;*/
 	/**
 	 *This button will take you to the Lehman atrium simulation screen from the home menu 
 	 */
-	Button lehmanAtriumSim_button = new Button("Lehman Atrium Simulation") ; 
+	Button lehmanAtriumSim_button = new Button("Lehman \nAtrium \nSimulation") ; 
 	/**
 	 * This button will take you to some info about the sim (at this point user is at the Lehman sim page)
 	 */
@@ -241,7 +243,7 @@ public Robot m_Robot;*/
 	/**
 	 * This button will take you to the screen for the ECSSE Hallway simulation from the home menu
 	 */
-	Button ecsseHallwaySim_button = new Button("ECSSE Hallway Simulation") ; 
+	Button ecsseHallwaySim_button = new Button("ECSSE \nHallway \nSimulation") ; 
 	/**
 	 * This button will take you to some infor about the sim (at this point the user is at ECSSE hallway sim)
 	 */
@@ -249,7 +251,7 @@ public Robot m_Robot;*/
 	/**
 	 * This is the button that will talk you to the cob simulation from the home menu
 	 */
-	Button cob125Sim_button = new Button("COB Room 125 Simulation") ;
+	Button cob125Sim_button = new Button("COB \nRoom 125 \nSimulation") ;
 	/**
 	 * This button will take you to some info about the sim (at this point the user is at COB125 hallway sim)
 	 */
@@ -263,8 +265,26 @@ public Robot m_Robot;*/
 	 * making the GUI work! yay!
 	 */
 	@Override
+	
 	public void start(Stage primaryStage) throws Exception {
 
+		//here human factors plays with color and size :) 
+		final String IEEE_ORANGE = "#E37222" ;
+		homemenu_title.setFont(new Font("Arial", 36));
+		homemenu_title.setFill(Color.web(IEEE_ORANGE));
+		
+		homemenu_subtitle.setFont(new Font("Arial", 28));
+		homemenu_subtitle.setFill(Color.web(IEEE_ORANGE));
+		
+		lehmanAtriumSim_title.setFont(new Font("Arial", 18)); 
+		lehmanAtriumSim_simTitle.setFont(new Font("Arial", 14));
+		lehmanAtriumSim_uiTitle.setFont(new Font("Arial", 14));
+		
+		lehmanAtriumSim_button.setStyle("-fx-font: 22 arial; -fx-base: #006699;") ; 
+		ecsseHallwaySim_button.setStyle("-fx-font: 22 arial; -fx-base: #006699;") ; 
+		cob125Sim_button.setStyle("-fx-font: 22 arial; -fx-base: #006699;") ; 
+		
+		
 		/**
 		 * This is the exciting part where we put panes where they should go :)
 		 */
