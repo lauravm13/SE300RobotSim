@@ -24,7 +24,7 @@ public class Audio {
 
 		// specify the sound to play
 		// (assuming the sound can be played by the audio system)
-		File soundFile = new File("success.wav");
+		File soundFile = new File("message.wav");
 		// System.out.println(soundFile.getAbsolutePath());
 		AudioInputStream sound;
 		try {
